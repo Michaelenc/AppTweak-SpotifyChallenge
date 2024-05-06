@@ -1,0 +1,9 @@
+#searchButton {
+    margin-inline-start: 10px;
+}
+
+#searchInput {
+    font-size:1em;
+    padding: 10px 20px;
+    border-radius: 15px;
+}

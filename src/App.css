@@ -1,3 +1,78 @@
-.contentContainer{
+:root{
+  --apptweak-red:#C82C46;
+  --background-color: white;
+  --shadow-color:rgba(128,128,128,1);
+  --background-hover-color: #FFEFEE;
+}
+
+html, body, #root, #contentContainer{
+  height: 100%;
+} 
+
+#contentContainer{
   position:relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#main{
+  box-sizing: border-box;
+  padding:5px;
+  width:100%;
+  flex: 1 0 auto;
+}
+
+a{
+  color: var(--apptweak-red)
+}
+
+.button{
+  font-size:1em;
+  padding: 10px 20px;
+  border-radius:15px;
+  background-color: var(--apptweak-red);
+  -webkit-box-shadow: 0px 0px 10px 0px var(--shadow-color);
+  -moz-box-shadow: 0px 0px 10px 0px var(--shadow-color);
+  box-shadow: 0px 0px 10px 0px var(--shadow-color);
+  border: 1px solid var(--apptweak-red);
+  color:white;
+  margin-block-end: 10px;
+}
+
+.button:hover{
+  filter:brightness(90%);
+}
+
+.button:active{
+  position:relative;
+  top:1px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: var(--background-hover-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--shadow-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--apptweak-red);
+}
+
+::-moz-selection {
+  color: white;
+  background-color: var(--apptweak-red);
+}
+
+::selection {
+  color: white;
+  background-color: var(--apptweak-red);
 }

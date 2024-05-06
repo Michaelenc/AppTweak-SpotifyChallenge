@@ -1,0 +1,71 @@
+#songs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.song {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap:5px;
+    flex-grow:1;
+    width: 80%;
+    border-radius: 10px;
+    padding: 7px;
+    -webkit-box-shadow: inset 0px 0px 22px -10px var(--shadow-color);
+    -moz-box-shadow: inset 0px 0px 22px -10px var(--shadow-color);
+    box-shadow: inset 0px 0px 22px -10px var(--shadow-color);
+    background-color: var(--background-color);
+}
+
+.song:hover {
+    background-color: var(--background-hover-color);
+}
+
+.song > * {
+    align-self: center;
+}
+.song *{
+    margin:0;
+}
+.song > img {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+}
+
+.song > h3 {
+    margin-block-start: 1em;
+    text-align: center;
+    color: var(--apptweak-red);
+    grid-column-start: 2;
+}
+
+.trackInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap:5px;
+}
+
+.trackInfo > * {
+    margin:0;
+    flex-grow: 1;
+    text-align: center;
+    min-width: 10em;
+}
+
+.showEpisode > * {
+    width: 45%;
+}
+
+.albumTrack > * {
+    width: 30%;
+}
+.statDescription{
+    margin-block:5px;
+}

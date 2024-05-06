@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store/store";
 import {
+  EpisodeObject,
   SpotifyPlaylist,
   SpotifyTrack,
   SpotifyTrackItem,
+  TrackObject,
   User,
 } from "../types";
 
@@ -48,6 +50,18 @@ export const apiSlice = createApi({
         return response.tracks.items;
       },
     }),
+    getTrack: builder.query<TrackObject, string>({
+      query: (trackId) => ({
+        url: `/tracks/${trackId}`,
+        method: "GET",
+      }),
+    }),
+    getEpisode: builder.query<EpisodeObject, string>({
+      query: (episodeId) => ({
+        url: `/episodes/${episodeId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -56,6 +70,8 @@ export const {
   useGetPlaylistsQuery,
   useGetPlaylistTracksQuery,
   useGetSearchTrackResultQuery,
+  useGetTrackQuery,
+  useGetEpisodeQuery
 } = apiSlice;
 
 export default apiSlice.reducer;

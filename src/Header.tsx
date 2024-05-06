@@ -1,16 +1,39 @@
-import './Header.css';
+import { useDispatch } from "react-redux";
+import { profile, userPlaylists } from "./song/songSlice";
 
-export default function Header({height}:{height:number}){
-    return (
-      <>
-        <header style={{height:height}} className='header'>
-          <div className='headerLogoContainer'>
-            <img src="./AppTweak_logo_1920.png" alt="logo AppTweak" className="headerLogo"/>
-          </div>
-          <div className='headerTitleContainer'>
-            <h1 className='headerTitle'>Spotify challenge</h1>
-          </div>
-        </header>
-      </>
-    )
+import "./Header.css";
+
+export function HeaderLogo() {
+  const dispatch = useDispatch();
+  return (
+    <div id="headerLogoContainer">
+      <img src="./AppTweak_logo_1920.png" alt="logo AppTweak" draggable="false" id="headerLogo" onClick={() => dispatch(userPlaylists())} />
+    </div>
+  );
+}
+export function HeaderTitle() {
+  return (
+    <div id="headerTitleContainer">
+      <h1 id="headerTitle">AppTweak Music</h1>
+    </div>
+  );
+}
+export function HeaderAccount() {
+  const dispatch = useDispatch();
+  return (
+    <img
+      src="user.png"
+      alt="account"
+      draggable="false"
+      id="headerAccount"
+      onClick={() => dispatch(profile())}
+    />
+  );
+}
+export function Header({ height, children }: { height: number; children: JSX.Element[] }) {
+  return (
+    <header style={{ height: height }} id="header">
+      {children}
+    </header>
+  );
 }

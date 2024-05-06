@@ -8,9 +8,7 @@ type AuthInitializerProps = {
   children: ReactNode;
 };
 
-const AuthInitializer: FC<AuthInitializerProps> = ({
-  children,
-}: AuthInitializerProps) => {
+const AuthInitializer: FC<AuthInitializerProps> = ({ children }: AuthInitializerProps) => {
   const dispatch = useDispatch();
   const accessToken = useSelector(authSelectors.getAccessToken);
 

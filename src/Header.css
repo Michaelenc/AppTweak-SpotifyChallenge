@@ -1,18 +1,21 @@
-.header{
-    position:absolute;
+#header{
+    position:fixed;
+    background-color: white;
+    z-index:100000;
     top:0;
     left:0;
     right:0;
-    -webkit-box-shadow: 0px 5px 20px -4px rgba(128,128,128,1);
-    -moz-box-shadow: 0px 5px 20px -4px rgba(128,128,128,1);
-    box-shadow: 0px 5px 20px -4px rgba(128,128,128,1);
+    -webkit-box-shadow: 0px 5px 20px -10px var(--shadow-color);
+    -moz-box-shadow: 0px 5px 20px -10px var(--shadow-color);
+    box-shadow: 0px 5px 20px -10px var(--shadow-color);
     padding: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     display:flex;
     flex-direction: row;
+    box-sizing: border-box;
 }
-.headerLogoContainer, .headerTitleContainer{
+#headerLogoContainer, #headerTitleContainer{
     margin:0;
     padding:0;
     height: 100%;
@@ -20,14 +23,19 @@
     align-items: center;
     justify-content: center;
 }
-.headerLogo{
+#headerLogo{
     height:80%;
+    cursor: pointer;
 }
 
-.headerTitleContainer{
+#headerTitleContainer{
     width: 100%;
-    flex-grow:1;
+    flex-grow: 1;
 }
-.headerTitle{
-    margin:0;
+#headerTitle{
+    margin: 0;
+    color: var(--apptweak-red)
+}
+#headerAccount{
+    cursor: pointer;
 }

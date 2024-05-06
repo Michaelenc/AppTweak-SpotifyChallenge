@@ -5,7 +5,7 @@ const SPOTIFY_SCOPE = [
   "user-read-private",
   "playlist-read-private",
   "playlist-modify-private",
-  "playlist-modify-public",
+  "playlist-modify-public"
 ];
 
 const REDIRECT_URI = window.location.origin;
@@ -19,7 +19,7 @@ export interface AccessTokenPayload {
 }
 
 const initialState: AuthState = {
-  accessToken: undefined,
+  accessToken: undefined
 };
 
 const authSlice = createSlice({
@@ -35,8 +35,8 @@ const authSlice = createSlice({
     setAccessToken(state, action: PayloadAction<AccessTokenPayload>) {
       state.accessToken = action.payload.accessToken;
       window.history.pushState({ REDIRECT_URI }, "", REDIRECT_URI);
-    },
-  },
+    }
+  }
 });
 
 export const { login, setAccessToken } = authSlice.actions;
