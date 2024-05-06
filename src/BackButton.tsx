@@ -11,7 +11,8 @@ export default function BackButton({
   const dispatch = useDispatch();
   return (
     <button
-      id="backButton" className="button"
+      id="backButton"
+      className="button"
       onClick={() => dispatch(back({ backDirection: backDirection, backId: backId }))}
     >
       Go back

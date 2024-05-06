@@ -7,7 +7,13 @@ export function HeaderLogo() {
   const dispatch = useDispatch();
   return (
     <div id="headerLogoContainer">
-      <img src="./AppTweak_logo_1920.png" alt="logo AppTweak" draggable="false" id="headerLogo" onClick={() => dispatch(userPlaylists())} />
+      <img
+        src="./AppTweak_logo_1920.png"
+        alt="logo AppTweak"
+        draggable="false"
+        id="headerLogo"
+        onClick={() => dispatch(userPlaylists())}
+      />
     </div>
   );
 }

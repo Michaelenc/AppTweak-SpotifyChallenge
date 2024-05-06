@@ -15,7 +15,7 @@ function PlayList({
 }) {
   const dispatch = useDispatch();
   return (
-    <div className="playlistItem" onClick={() => dispatch(playlist(spotify_playlist.id)) }>
+    <div className="playlistItem" onClick={() => dispatch(playlist(spotify_playlist.id))}>
       <img
         loading="lazy"
         height={imageHeight}

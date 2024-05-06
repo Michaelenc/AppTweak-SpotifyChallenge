@@ -33,14 +33,19 @@ const App: FC = (): ReactElement => {
           <BackButton backDirection="user-playlists" backId="" />
         )}
         {(songState === "track-information" || songState === "episode-information") && (
-          <BackButton backDirection = {returnState} backId = {returnId}/>
+          <BackButton backDirection={returnState} backId={returnId} />
         )}
-        {songState === "user-playlists" && <><SearchBar /><PlayLists imageHeight={imageHeight} /></>}
+        {songState === "user-playlists" && (
+          <>
+            <SearchBar />
+            <PlayLists imageHeight={imageHeight} />
+          </>
+        )}
         {songState === "playlist" && <Songs imageHeight={imageHeight} />}
-        {songState === "user-profile" && <Profile imageHeight={imageHeight}/>}
-        {songState === "search" && <SearchResults imageHeight={imageHeight}/>}
-        {songState === "track-information" && <SongInformation imageHeight={imageHeight}/>}
-        {songState === "episode-information" && <EpisodeInformation imageHeight={imageHeight}/>}
+        {songState === "user-profile" && <Profile imageHeight={imageHeight} />}
+        {songState === "search" && <SearchResults imageHeight={imageHeight} />}
+        {songState === "track-information" && <SongInformation imageHeight={imageHeight} />}
+        {songState === "episode-information" && <EpisodeInformation imageHeight={imageHeight} />}
       </main>
       <Footer />
     </div>
