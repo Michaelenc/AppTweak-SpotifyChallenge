@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useGetPlaylistsQuery } from "./api/apiSlice";
+import { useGetPlaylistsQuery, useGetUserQuery } from "./api/apiSlice";
 import { authSelectors } from "./containers/auth/selectors";
 import { SpotifyPlaylistItem } from "./types";
 import { playlist } from "./song/songSlice";
@@ -33,14 +33,23 @@ export default function PlayLists({ imageHeight }: { imageHeight: number }) {
   const { data: playlists } = useGetPlaylistsQuery(undefined, {
     skip: !accessToken
   });
-  if (playlists !== undefined) {
-    const playlistJSX = playlists.items.map((spotify_playlist) => (
-      <PlayList
-        key={spotify_playlist.id}
-        spotify_playlist={spotify_playlist}
-        imageHeight={imageHeight}
-      />
-    ));
-    return <div id="playlists">{playlistJSX}</div>;
+  const { data: user } = useGetUserQuery(undefined, {
+    skip: !accessToken
+  });
+  if (playlists !== undefined && user !== undefined) {
+    return (
+      <>
+        <h1>Playlists for {user.display_name}</h1>
+        <div id="playlists">
+          {playlists.items.map((spotify_playlist) => (
+            <PlayList
+              key={spotify_playlist.id}
+              spotify_playlist={spotify_playlist}
+              imageHeight={imageHeight}
+            />
+          ))}
+        </div>
+      </>
+    );
   }
 }

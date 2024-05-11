@@ -9,6 +9,7 @@ import { episode, track } from "./song/songSlice";
 
 function Song({ songItem, imageHeight }: { songItem: SpotifySongItem; imageHeight: number }) {
   const dispatch = useDispatch();
+  console.log(songItem);
   if ("album" in songItem.track) {
     const trackItem = songItem.track as TrackObject;
     return (
@@ -17,7 +18,7 @@ function Song({ songItem, imageHeight }: { songItem: SpotifySongItem; imageHeigh
           loading="lazy"
           height={imageHeight}
           src={trackItem.album.images.length > 0 ? trackItem.album.images[0].url : "/no-cover.jpg"}
-          alt={"Album cover for " + trackItem.name}
+          alt={"Track album cover for " + trackItem.name}
           draggable="false"
         />
         <h3>{trackItem.name}</h3>
@@ -64,7 +65,7 @@ function Song({ songItem, imageHeight }: { songItem: SpotifySongItem; imageHeigh
           loading="lazy"
           height={imageHeight}
           src={episodeItem.images.length > 0 ? episodeItem.images[0].url : "/no-cover.jpg"}
-          alt={"Episode cover for " + episodeItem.name}
+          alt={"Episode show cover for " + episodeItem.name}
           draggable="false"
         />
         <h3>{songItem.track.name}</h3>
@@ -89,9 +90,15 @@ export default function Songs({ imageHeight }: { imageHeight: number }) {
     skip: !accessToken
   });
   if (songs !== undefined) {
-    const songElements = songs.items.map((songItem) => (
-      <Song key={songItem.track.id} songItem={songItem} imageHeight={imageHeight} />
-    ));
-    return <div id="songs">{songElements}</div>;
+    return (
+      <>
+        <h1>Playlist</h1>
+        <div id="songs">
+          {songs.items.map((songItem) => (
+            <Song key={songItem.track.id} songItem={songItem} imageHeight={imageHeight} />
+          ))}
+        </div>
+      </>
+    );
   }
 }

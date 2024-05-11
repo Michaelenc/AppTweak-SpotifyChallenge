@@ -24,7 +24,7 @@ const AuthInitializer: FC<AuthInitializerProps> = ({ children }: AuthInitializer
         dispatch(login());
       }
     }
-  }, [accessToken, params]);
+  }, [accessToken, params, dispatch]);
 
   return <>{children}</>;
 };

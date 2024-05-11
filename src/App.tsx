@@ -3,7 +3,7 @@ import "./App.css";
 import { FC, ReactElement } from "react";
 import { useSelector } from "react-redux";
 
-import { Header, HeaderAccount, HeaderLogo, HeaderTitle } from "./Header";
+import { Header, HeaderAccount, HeaderLogo, HeaderTheme, HeaderTitle } from "./Header";
 import SearchBar from "./SearchBar";
 import PlayLists from "./PlayLists";
 import { RootState } from "./store/store";
@@ -26,6 +26,7 @@ const App: FC = (): ReactElement => {
       <Header height={headerHeight}>
         <HeaderLogo />
         <HeaderTitle />
+        <HeaderTheme />
         <HeaderAccount />
       </Header>
       <main style={{ marginBlockStart: headerHeight + 10 }} id="main">

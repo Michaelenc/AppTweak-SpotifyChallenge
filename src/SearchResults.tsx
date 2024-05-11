@@ -15,7 +15,7 @@ function Song({ trackItem, imageHeight }: { trackItem: SpotifyTrackItem; imageHe
         loading="lazy"
         height={imageHeight}
         src={trackItem.album.images.length > 0 ? trackItem.album.images[0].url : "/no-cover.jpg"}
-        alt={"Album cover for " + trackItem.name}
+        alt={"Track album cover for " + trackItem.name}
         draggable="false"
       />
       <h3>{trackItem.name}</h3>
@@ -65,11 +65,14 @@ export default function SearchResults({ imageHeight }: { imageHeight: number }) 
   console.log(queryMatches);
   if (queryMatches !== undefined) {
     return (
-      <div id="searchResults">
-        {queryMatches.map((match) => (
-          <Song key={match.id} trackItem={match} imageHeight={imageHeight} />
-        ))}
-      </div>
+      <>
+        <h1>Results for "{searchQuery}"</h1>
+        <div id="searchResults">
+          {queryMatches.map((match) => (
+            <Song key={match.id} trackItem={match} imageHeight={imageHeight} />
+          ))}
+        </div>
+      </>
     );
   }
 }

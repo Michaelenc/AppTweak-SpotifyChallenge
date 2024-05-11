@@ -1,18 +1,22 @@
 :root{
-  --apptweak-red:#C82C46;
+  --apptweak-red:rgb(200, 44, 70);
   --background-color: white;
-  --shadow-color:rgba(128,128,128,1);
+  --shadow-color:#808080;
   --background-hover-color: #FFEFEE;
+  --text-color: black;
 }
 
 html, body, #root, #contentContainer{
   height: 100%;
+  background-color: var(--background-color);
 } 
 
 #contentContainer{
+  color: var(--text-color);
   position:relative;
   display: flex;
   flex-direction: column;
+  background-color: var(--background-color);
 }
 
 #main{
@@ -22,8 +26,12 @@ html, body, #root, #contentContainer{
   flex: 1 0 auto;
 }
 
-a{
+a, h1{
   color: var(--apptweak-red)
+}
+
+h1{
+  margin-block-start: 5px;
 }
 
 .button{

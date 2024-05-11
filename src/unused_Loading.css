@@ -1,0 +1,51 @@
+#loaders{
+    margin-block-end: 10px;
+    display:flex;
+    gap:5px;
+    justify-content: center;
+}
+.loader{
+    border-radius: 50%;
+    border-block-start: 5px solid var(--apptweak-red);
+    border-block-end: 5px solid var(--apptweak-red);
+    border-inline-start: 5px solid var(--shadow-color);
+    border-inline-end: 5px solid var(--shadow-color);
+}
+.loader-left{
+    animation: spin2 5s linear infinite;
+}
+.loader-right{
+    animation: spin1 5s linear infinite;
+}
+@media screen and (max-width: 502px){
+    .loader:nth-child(3){
+        display:none;
+    }
+  }
+@media screen and (max-width: 338px){
+    .loader:nth-child(2){
+      display: none;
+    }
+}
+@keyframes spin1 {
+    0% { transform: rotate(0deg); }
+    12.5%{ transform: rotate(45deg); }
+    25%{ transform: rotate(-45deg); }
+    37.5%{ transform: rotate(-45deg); }
+    50%{ transform: rotate(90deg); }
+    62.5%{ transform: rotate(190deg); }
+    75%{ transform: rotate(320deg); }
+    87.5%{ transform:rotate(120deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes spin2 {
+    0% { transform: rotate(0deg); }
+    12.5%{ transform: rotate(-45deg); }
+    25%{ transform: rotate(45deg); }
+    37.5%{ transform: rotate(45deg); }
+    50%{ transform: rotate(-90deg); }
+    62.5%{ transform: rotate(-190deg); }
+    75%{ transform: rotate(-320deg); }
+    87.5%{ transform:rotate(-120deg); }
+    100% { transform: rotate(0deg); }
+}

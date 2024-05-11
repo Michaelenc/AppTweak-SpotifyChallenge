@@ -1,0 +1,42 @@
+#TrackInfoContainer{
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position:relative;
+}
+
+#TrackInfo {
+    display:inline-block;
+    position: relative;
+    padding: 10px;
+    -webkit-box-shadow: inset 0px 0px 22px -10px var(--shadow-color);
+    -moz-box-shadow: inset 0px 0px 22px -10px var(--shadow-color);
+    box-shadow: inset 0px 0px 22px -10px var(--shadow-color);
+    background-color: var(--background-color);
+    border-radius: 20px;
+    text-align: center;
+}
+
+#albumCover {
+    position: absolute;
+    background-color: var(--background-color);
+    border-radius: 15px;
+    left: 0;
+    right: 0;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+#TrackInfoTitle{
+    margin-block-start: 0px;
+}
+
+#audioPlayer{
+    position:absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#loudspeakerIcon{
+    filter: invert(25%) sepia(26%) saturate(5378%) hue-rotate(328deg) brightness(94%) contrast(94%);
+}

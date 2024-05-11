@@ -7,6 +7,7 @@ export interface CounterState {
   returnState: string;
   returnId: string;
   search: string;
+  theme: string;
 }
 
 const initialState: CounterState = {
@@ -14,7 +15,8 @@ const initialState: CounterState = {
   id: "",
   returnState: "",
   returnId: "",
-  search: ""
+  search: "",
+  theme: "light"
 };
 
 export const accountSlice = createSlice({
@@ -53,12 +55,28 @@ export const accountSlice = createSlice({
     back: (state, back: PayloadAction<{ backDirection: string; backId: string }>) => {
       state.songState = back.payload.backDirection;
       state.id = back.payload.backId;
+    },
+    switchTheme: (state) => {
+      if (state.theme === "light") {
+        state.theme = "dark";
+      } else {
+        state.theme = "light";
+      }
     }
   }
 });
 
 // Action creators are generated for each case reducer function
-export const { userPlaylists, playlist, profile, search, updateSearch, track, episode, back } =
-  accountSlice.actions;
+export const {
+  userPlaylists,
+  playlist,
+  profile,
+  search,
+  updateSearch,
+  track,
+  episode,
+  back,
+  switchTheme
+} = accountSlice.actions;
 
 export default accountSlice.reducer;

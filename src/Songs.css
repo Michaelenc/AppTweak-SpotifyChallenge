@@ -4,7 +4,6 @@
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .song {
     cursor: pointer;
     display: grid;
