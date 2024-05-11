@@ -1,0 +1,22 @@
+#footer{
+    margin-top: 20px;
+    padding: 5px;
+    flex-shrink: 0;
+    background-color: var(--apptweak-red);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#footer *{
+    color: white;
+}
+
+#footer *::-moz-selection {
+    color: var(--apptweak-red);
+    background-color: var(--background-color);
+}
+  
+#footer *::selection {
+    color: var(--apptweak-red);
+    background-color: var(--background-color);
+}

@@ -1,33 +1,69 @@
-.header{
-    position:absolute;
+#header{
+    position:fixed;
+    background-color: var(--background-color);
+    z-index:100000;
     top:0;
     left:0;
     right:0;
-    -webkit-box-shadow: 0px 5px 20px -4px rgba(128,128,128,1);
-    -moz-box-shadow: 0px 5px 20px -4px rgba(128,128,128,1);
-    box-shadow: 0px 5px 20px -4px rgba(128,128,128,1);
+    -webkit-box-shadow: 0px 5px 20px -10px var(--shadow-color);
+    -moz-box-shadow: 0px 5px 20px -10px var(--shadow-color);
+    box-shadow: 0px 5px 20px -10px var(--shadow-color);
     padding: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     display:flex;
     flex-direction: row;
+    box-sizing: border-box;
+    gap: 5px;
 }
-.headerLogoContainer, .headerTitleContainer{
+#headerLogoContainer, #headerTitleContainer{
     margin:0;
     padding:0;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-.headerLogo{
-    height:80%;
 }
 
-.headerTitleContainer{
-    width: 100%;
-    flex-grow:1;
+#headerLogo, #headerLogoSmall{
+    height:80%;
+    cursor: pointer;
 }
-.headerTitle{
-    margin:0;
+
+#headerLogoSmall{
+    display: none;
+}
+
+#headerTitleContainer{
+    width: 100%;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#headerTitle{
+    margin: 0;
+    color: var(--apptweak-red)
+}
+
+#headerAccount, #headerTheme{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 650px){
+    #headerLogo{
+        display: none;
+    }
+
+    #headerLogoSmall{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 450px){
+    #headerTitleContainer{
+        display: none;
+    }
+
+    #headerLogoContainer{
+        flex-grow: 1;
+    }
 }

@@ -1,10 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store/store";
 import {
+  EpisodeObject,
   SpotifyPlaylist,
   SpotifyTrack,
   SpotifyTrackItem,
-  User,
+  TrackObject,
+  User
 } from "../types";
 
 export const apiSlice = createApi({
@@ -18,37 +20,49 @@ export const apiSlice = createApi({
         headers.set("authorization", `Bearer ${token}`);
       }
       return headers;
-    },
+    }
   }),
   endpoints: (builder) => ({
     getUser: builder.query<User, void>({
       query: () => ({
         url: "/me",
-        method: "GET",
-      }),
+        method: "GET"
+      })
     }),
     getPlaylists: builder.query<SpotifyPlaylist, void>({
       query: () => ({
         url: "/me/playlists",
-        method: "GET",
-      }),
+        method: "GET"
+      })
     }),
     getPlaylistTracks: builder.query<SpotifyTrack, string>({
       query: (playlistRef) => ({
         url: `${playlistRef}`,
-        method: "GET",
-      }),
+        method: "GET"
+      })
     }),
     getSearchTrackResult: builder.query<SpotifyTrackItem[], string>({
       query: (search) => ({
         url: `/search?q=${search}&type=track`,
-        method: "GET",
+        method: "GET"
       }),
       transformResponse: (response: any) => {
         return response.tracks.items;
-      },
+      }
     }),
-  }),
+    getTrack: builder.query<TrackObject, string>({
+      query: (trackId) => ({
+        url: `/tracks/${trackId}`,
+        method: "GET"
+      })
+    }),
+    getEpisode: builder.query<EpisodeObject, string>({
+      query: (episodeId) => ({
+        url: `/episodes/${episodeId}`,
+        method: "GET"
+      })
+    })
+  })
 });
 
 export const {
@@ -56,6 +70,8 @@ export const {
   useGetPlaylistsQuery,
   useGetPlaylistTracksQuery,
   useGetSearchTrackResultQuery,
+  useGetTrackQuery,
+  useGetEpisodeQuery
 } = apiSlice;
 
 export default apiSlice.reducer;
